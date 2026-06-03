@@ -36,3 +36,5 @@ git clone -q --depth=1 --branch "$BRANCH" "$REPO_URL" "$TMP"
 rsync -a "$TMP/.project/" "$TARGET/"
 
 rm -rf "$TMP"
+
+git status
