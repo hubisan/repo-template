@@ -98,14 +98,24 @@ Do not invent assumptions. Record task-specific uncertainty in the task file. Re
 
 ## Repository Maintenance (User Only)
 
-AGENTS.md and the task template are managed via a Git subtree into the `.project/` directory.
+AGENTS.md and the task template are managed via a Git subtree into a local vendor cache (`.project/vendor/`) and then copied to their respective locations.
 
 **Critical:** AI agents must not update or synchronize these shared workflow files. This is a manual user task.
 
-If the repository needs to be synchronized, remind the user to run one of the following commands:
+If the repository needs to be synchronized, remind the user to run one of the following command sequences:
 
-- **For initial setup in a new project:**
-  `git subtree add --prefix=.project https://github.com/hubisan/ai-agents-config.git main --squash`
+**For initial setup in a new project:**
 
-- **For subsequent updates:**
-  `git subtree pull --prefix=.project https://github.com/hubisan/ai-agents-config.git main --squash`
+```bash
+git subtree add --prefix=.project/vendor https://github.com/hubisan/ai-agents-config.git main --squash
+cp -f .project/vendor/agents/AGENTS.md .project/agents/
+cp -f .project/vendor/tasks/template.org .project/tasks/
+```
+
+**For subsequent updates:**
+
+```bash
+git subtree pull --prefix=.project/vendor https://github.com/hubisan/ai-agents-config.git main --squash
+cp -f .project/vendor/agents/AGENTS.md .project/agents/
+cp -f .project/vendor/tasks/template.org .project/tasks/
+```
