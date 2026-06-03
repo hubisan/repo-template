@@ -5,7 +5,9 @@
 
 ** AI Agent Instructions
 
-This repository contains AI-specific development instructions in [[./AGENTS.org]] =AGENTS.org=. AI agents must read =AGENTS.org= before making changes.
+This repository contains AI-specific development instructions in
+[[./.project/agents/AGENTS.md][.project/agents/AGENTS.md]]. AI agents must read =.project/agents/AGENTS.md= before
+making changes.
 
 ** Features
 
