@@ -3,29 +3,19 @@
 # -----------------------------------------------------------------------------
 # update-ai-config-files.sh
 #
-# Copies the `agents/` and `tasks/` directories from an external Git repository
-# into the current repository's `.project/` directory.
+# Copies the contents of `.project/` from an external Git repository into the
+# current repository's `.project/` directory.
 #
 # The script:
 #   - detects the root of the current Git repository
 #   - clones the external repository into a temporary local folder
-#   - copies files from:
-#       external-repo/agents/ -> .project/agents/
-#       external-repo/tasks/  -> .project/tasks/
+#   - copies everything from:
+#       external-repo/.project/ -> current-repo/.project/
 #   - overwrites existing files with the same names
-#   - keeps all other files in `.project/` untouched
+#   - keeps other existing files in `.project/` untouched
 #   - removes the temporary clone afterwards
 #
 # No files are staged or committed automatically.
-# Review the changes afterwards with:
-#
-#   git status
-#   git diff
-#
-# Then stage and commit manually:
-#
-#   git add .project/agents .project/tasks
-#   git commit
 # -----------------------------------------------------------------------------
 
 set -e
@@ -39,13 +29,10 @@ REPO_URL="https://github.com/hubisan/ai-agents-config.git"
 BRANCH="main"
 
 rm -rf "$TMP"
-mkdir -p "$TARGET/agents" "$TARGET/tasks"
+mkdir -p "$TARGET"
 
-git clone --quiet --depth=1 --branch "$BRANCH" "$REPO_URL" "$TMP"
+git clone -q --depth=1 --branch "$BRANCH" "$REPO_URL" "$TMP"
 
-rsync -a "$TMP/agents/" "$TARGET/agents/"
-rsync -a "$TMP/tasks/" "$TARGET/tasks/"
+rsync -a "$TMP/.project/" "$TARGET/"
 
 rm -rf "$TMP"
-
-git status
