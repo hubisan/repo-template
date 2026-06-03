@@ -5,10 +5,10 @@ This repository uses AI agents to assist with development.
 
 Important files:
 
-- [[./AGENTS.org]]: AI agent instructions and workflow rules
-- [[./TODO.org]]: Active task index & statuses.
-- [[./AI-NOTES.org]]: Cross-task context (notes, blockers, decisions). 
-- [[./CHANGELOG.org]]: Approved/completed user-visible changes.
+- [[../agents/AGENTS.md]]: AI agent instructions and workflow rules
+- [[./todo.org]]: Active task index & statuses.
+- [[../agents/ai-notes.org]]: Cross-task context (notes, blockers, decisions). 
+- [[../../CHANGELOG.org]]: Approved/completed user-visible changes.
 
 * TODO Task
 
