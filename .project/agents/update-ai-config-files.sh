@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # -----------------------------------------------------------------------------
-# update-project-files.sh
+# update-ai-config-files.sh
 #
 # Copies the `agents/` and `tasks/` directories from an external Git repository
 # into the current repository's `.project/` directory.
@@ -41,11 +41,9 @@ BRANCH="main"
 rm -rf "$TMP"
 mkdir -p "$TARGET/agents" "$TARGET/tasks"
 
-git clone --depth=1 --branch "$BRANCH" "$REPO_URL" "$TMP"
+git clone --quiet --depth=1 --branch "$BRANCH" "$REPO_URL" "$TMP"
 
 rsync -a "$TMP/agents/" "$TARGET/agents/"
 rsync -a "$TMP/tasks/" "$TARGET/tasks/"
 
 rm -rf "$TMP"
-
-git status
