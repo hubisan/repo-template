@@ -47,3 +47,5 @@ rsync -a "$TMP/agents/" "$TARGET/agents/"
 rsync -a "$TMP/tasks/" "$TARGET/tasks/"
 
 rm -rf "$TMP"
+
+git status
