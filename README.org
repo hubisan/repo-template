@@ -61,7 +61,39 @@ This variant includes:
 
 ** Using this template
 
+This repository needs to be available locally. Use =./repo-template-init.sh= to initialize another project from one of the template variants.
 
+The script must be run from inside the local =repo-template= repository.
+
+Usage:
+
+#+begin_src bash
+  ./repo-template-init.sh markdown /path/to/target-project
+  ./repo-template-init.sh org-mode /path/to/target-project
+#+end_src
+
+The script does the following:
+
+- updates the local template repository with =git pull --ff-only=
+- copies the selected variant into the target project with =rsync=
+- overwrites existing files with the same names
+- keeps other existing files in the target project untouched
+- runs the target project's =.project/agents/update-ai-config-files.sh=
+- prints the target project's Git status if the target is a Git repository
+
+For Markdown-based projects:
+
+#+begin_src bash
+repo-template-init markdown /path/to/target-project
+#+end_src
+
+For Org-mode-based projects:
+
+#+begin_src bash
+repo-template-init org-mode /path/to/target-project
+#+end_src
+
+No files are staged or committed automatically.
 
 ** License
 
