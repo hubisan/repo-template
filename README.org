@@ -1,0 +1,68 @@
+#+STARTUP: showall
+
+* AI Project Template
+
+This repository contains reusable template files for AI-assisted coding projects.
+
+It provides two project variants:
+
+- =org-mode/= for projects that use Org-mode task and documentation files
+- =markdown/= for projects that use Markdown task and documentation files
+
+The repository root currently contains the Org-mode variant as the default template layout.
+
+** Purpose
+
+This repository is a starting point for projects that should be ready for AI-assisted development.
+
+It includes:
+
+- agent instructions
+- repository-specific instruction files
+- task tracking files
+- task templates
+- changelog files
+- update scripts for shared AI configuration
+- separate Markdown and Org-mode variants
+
+** Variants
+
+*** Org-mode variant
+
+Use =org-mode/= when the target project should use Org-mode files.
+
+This variant includes:
+
+- =AGENTS.md=
+- =CHANGELOG.org=
+- =README.org=
+- =.project/agents/AGENTS.md=
+- =.project/agents/ai-notes.org=
+- =.project/agents/repository.org=
+- =.project/agents/update-ai-config-files.sh=
+- =.project/tasks/template.org=
+- =.project/tasks/todo.org=
+
+*** Markdown variant
+
+Use =markdown/= when the target project should use Markdown files.
+
+This variant includes:
+
+- =AGENTS.md=
+- =CHANGELOG.md=
+- =README.md=
+- =.project/agents/AGENTS.md=
+- =.project/agents/ai-notes.md=
+- =.project/agents/repository.md=
+- =.project/agents/update-ai-config-files.sh=
+- =.project/tasks/template.md=
+- =.project/tasks/todo.md=
+
+** Using this template
+
+
+
+** License
+
+See =LICENSE=.
