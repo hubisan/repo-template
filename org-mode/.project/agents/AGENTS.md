@@ -90,7 +90,16 @@ AI may prepare commits, but may only create, amend, squash, or rewrite commits w
 
 ## Protected changes
 
-Do not change without explicit instruction: secrets, tokens, `.env` files, production config, deployment credentials, large refactorings, dependency updates, or whole-file formatting.
+Do not change without explicit instruction:
+
+- Secrets
+- Tokens
+- `.env` files
+- Production config
+- Deployment credentials
+- Large refactorings
+- Dependency updates
+- Whole-file formatting
 
 ## When unsure
 
@@ -98,24 +107,12 @@ Do not invent assumptions. Record task-specific uncertainty in the task file. Re
 
 ## Repository Maintenance (User Only)
 
-AGENTS.md and the task template are managed via a Git subtree into a local vendor cache (`.project/vendor/`) and then copied to their respective locations.
+`AGENTS.md` and the task template are managed in an external config repository and copied into this repository's `.project/` directory with `./update-ai-config-files.sh`.
 
 **Critical:** AI agents must not update or synchronize these shared workflow files. This is a manual user task.
 
-If the repository needs to be synchronized, remind the user to run one of the following command sequences:
-
-**For initial setup in a new project:**
+To update `AGENTS.md` and the task template run:
 
 ```bash
-git subtree add --prefix=.project/vendor https://github.com/hubisan/ai-agents-config.git main --squash
-cp -f .project/vendor/agents/AGENTS.md .project/agents/
-cp -f .project/vendor/tasks/template.org .project/tasks/
-```
-
-**For subsequent updates:**
-
-```bash
-git subtree pull --prefix=.project/vendor https://github.com/hubisan/ai-agents-config.git main --squash
-cp -f .project/vendor/agents/AGENTS.md .project/agents/
-cp -f .project/vendor/tasks/template.org .project/tasks/
+./update-ai-config-files.sh
 ```

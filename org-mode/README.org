@@ -1,7 +1,7 @@
 #+STARTUP: showall
 * <Title of Package>
 
-[[https://www.gnu.org/licenses/gpl-3.0][https://img.shields.io/badge/License-GPL%20v3-blue.svg]] [[https://github.com/hubisan/woerterbuch/actions/workflows/tests.yml][https://github.com/hubisan/woerterbuch/actions/workflows/tests.yml/badge.svg]]
+[[https://www.gnu.org/licenses/gpl-3.0][https://img.shields.io/badge/License-GPL%20v3-blue.svg]] [[https://github.com/user/repo-name/actions/workflows/tests.yml]]
 
 ** AI Agent Instructions
 
