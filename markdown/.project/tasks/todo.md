@@ -14,4 +14,4 @@ Important files:
 
 # TODO Task
 
-# Abgeschlossen
+# Completed

@@ -1,5 +1,6 @@
 #+TITLE: TODO
 #+TODO: TODO(t) NEXT(n) WAIT(w) REVIEW(r) CONTINUE(C) | DONE(d) CANCEL(c)
+#+STARTUP: showall
 
 This repository uses AI agents to assist with development.
 
@@ -12,4 +13,7 @@ Important files:
 
 * TODO Task
 
-* Abgeschlossen
+* Completed
+:PROPERTIES:
+:VISIBILITY: children
+:END:

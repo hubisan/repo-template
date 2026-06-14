@@ -1,6 +1,6 @@
 # AI Agent Instructions
 
-Version: 0.4.0
+Version: 0.5.0
 
 AI agents must read this file before changing this repository.
 
@@ -50,13 +50,21 @@ Common AI errors to avoid:
 - Prefer headings/subheadings for structure.
 - Do not insert manual line breaks in normal prose just for visual wrapping.
 
+## Model suitability and cost awareness
+
+Before starting substantial work, the AI agent should briefly mention if the current model appears either underpowered or unnecessarily powerful for the task.
+
+If a stronger model would likely improve correctness, reasoning, context handling, or modality support, the agent should say so. If a cheaper or faster model would likely be sufficient, the agent should also say so to help reduce cost.
+
+The agent should continue with a best-effort approach unless the limitation would materially affect correctness, safety, or usefulness.
+
 ## Workflow
 
 1. User marks a task in [../tasks/todo.org](../tasks/todo.org) as `NEXT`.
 2. AI only works on `NEXT` or `CONTINUE` tasks unless explicitly instructed.
 3. For each AI task, AI creates/uses a task file in [../tasks/](../tasks/) based on [../tasks/template.org](../tasks/template.org): `../tasks/YYYY-MM-DD--slug.org`. Remove sections in the template if not relevant. Add other sections if it makes sense. Add the task start date at the top at `#+TASK_STARTED:`, like `[2026-06-03 Mi]`.
-4. AI links the task in [../tasks/todo.org](../tasks/todo.org) to its task file. Example: `[[./2026-05-24--anki-export-fix.org]]` (relative to the todo file).
-5. On `main`, create a focused branch, e.g. `feature/task-name` or `fix/task-name`; otherwise continue on the current branch and report suspicious branch/repo state.
+4. AI links the task in [../tasks/todo.org](../tasks/todo.org) to its task file just below the heading. Example: `Task file: [[./2026-05-24--anki-export-fix.org]]` (relative to the todo file).
+5. On `main`, create a focused branch named `type/description` using one allowed type (feat, fix, hotfix, refactor, perf, docs, test, release, ci, chore); otherwise, continue on the current branch and report a suspicious repository state.
 6. AI reads and follows [./repository.org](./repository.org) for repository-specific instructions.
 7. AI implements the requested task.
 8. If blocked, AI sets the task to `WAIT`, records the reason in the task file, notifies the user, and stops until the task is set back to `NEXT` or `CONTINUE`.
@@ -67,12 +75,13 @@ Common AI errors to avoid:
 13. After approval by the user:
     1. AI sets the task to `DONE`.
     2. AI updates [../../CHANGELOG.org](../../CHANGELOG.org) for notable changes.
-    3. AI adds the completion date at the top of the task file at `#+TASK_COMPLETED:`, like `[2026-06-03 Mi]`.
-    4. AI may create [../tasks/archive/](../tasks/archive/) if needed, moves the task file there, and updates the link in [../tasks/todo.org](../tasks/todo.org) to point to the archive subdirectory.
-    5. AI must not remove or archive the task entry in [../tasks/todo.org](../tasks/todo.org) unless explicitly instructed.
+    3. AI adds the completion date at the top of the task file at `#+TASK_COMPLETED:`.
+    4. AI moves the task file to [../tasks/archive/](../tasks/archive/) 
+    5. AI Updates the link in [../tasks/todo.org](../tasks/todo.org) to point to the archive subdirectory.
+    6. AI moves the completed task entry in [../tasks/todo.org](../tasks/todo.org) under the heading `* Completed` (create if missing) at the bottom.
 14. AI commits only when explicitly asked.
 15. Commits must be focused and have clear messages.
-16. If asked to squash, AI reviews the branch diff, updates [../../CHANGELOG.org](../../CHANGELOG.org) if needed, and creates one clear commit.
+16. If asked to commit, AI reviews the branch diff, updates [../../CHANGELOG.org](../../CHANGELOG.org) if needed, and creates one clear commit.
 17. User merges or requests merge into `main`.
 
 ## Commit rule
