@@ -5,11 +5,13 @@ AI agents: read `AGENTS.md` before working on any task.
 This file is inspired by Org mode. Headings use these TODO keywords:
 `TODO`, `NEXT`, `BUILD`, `PLAN`, `REVIEW`, `CONTINUE`, `DONE`, `CANCEL`.
 
-Important files:
 
-- [../agents/AGENTS.md](../agents/AGENTS.md): AI agent instructions and workflow rules
-- [../agents/ai-notes.md](../agents/ai-notes.md): Cross-task context, notes, blockers, and decisions.
+This file is the active task index.
 
-# TODO Task ...
+- For workflow rules, see [../agents/AGENTS.md](../agents/AGENTS.md).
+- For repository-specific rules, see [../agents/repository.md](../agents/repository.md).
+- Project context and architecture decisions: [./project-context.md](../project-context.md).
+- For later phases and backlog, see [./roadmap.md](./roadmap.md)
 
-# Completed
+# TODO Task
+

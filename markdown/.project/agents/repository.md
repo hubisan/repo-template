@@ -5,3 +5,5 @@
 ## Project structure
 
 ## Coding style
+
+## Foldes/Files to ignore
